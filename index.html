@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0,user-scalable=no"
+    />
+    <title>chat online</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        background: linear-gradient(135deg, #ea7676, #eb6cd8, #9198e5);
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      (function () {
+        var e = null;
+        (window.onresize = function () {
+          clearTimeout(e), (e = setTimeout(f, 300));
+        }),
+          f();
+        function f() {
+          var cw = document.documentElement.clientWidth;
+          if (
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+              navigator.userAgent
+            )
+          ) {
+            document.querySelector("html").style.fontSize = 100 / 10 + "vmin";
+          } else {
+            document.querySelector("html").style.fontSize = "60px";
+          }
+        }
+      })(window);
+    </script>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
