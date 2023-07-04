@@ -4,7 +4,7 @@ import type { MsgContent, MsgList, NotNeedComputedFiled, UserInfo } from './type
 export default function useWebsocket() {
     const msgList = ref<MsgList[]>([])
     function createSocket(userInfo: Ref<UserInfo>, open?: () => void, firstReceive?: () => void, receive?: () => void) {
-        const socket = new WebSocket(`ws://${import.meta.env.VITE_APP_SOCKET_URL}/socket/:${Cookies.get('uid')}`);
+        const socket = new WebSocket(`ws://${import.meta.env.VITE_APP_SOCKET_URL}/socket/${Cookies.get('uid')}`);
         socket.onopen = () => {
             open?.()
         }
